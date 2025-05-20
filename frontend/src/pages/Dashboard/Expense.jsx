@@ -12,7 +12,6 @@ import DeleteAlert from "../../components/DeleteAlert";
 
 const Expense = () => {
   useUserAuth();
-
   const [expenseData, setExpenseData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
@@ -43,8 +42,8 @@ const Expense = () => {
   };
 
   // Handle add expense
-  const handleAddExpense = async (income) => {
-    const { category, amount, date, icon } = income;
+  const handleAddExpense = async(expense) => {
+    const { category, amount, date, icon } = expense;
 
     // Validation Checks
     if (!category.trim()) {
@@ -71,11 +70,11 @@ const Expense = () => {
       });
 
       setOpenAddExpenseModal(false);
-      toast.success("Income added successfully");
+      toast.success("Expense added successfully");
       fetchExpenseDetails();
     } catch (error) {
       console.error(
-        "Error adding income:",
+        "Error adding expense:",
         error.response?.data?.message || error.message
       );
     }

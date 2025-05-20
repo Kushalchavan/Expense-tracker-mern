@@ -9,7 +9,7 @@ const uploadImage = async (imageFile) => {
 
   try {
     const response = await axiosInstance.post(
-      API_PATHS.UPLOAD_IMAGE,
+      API_PATHS.IMAGE.UPLOAD_IMAGE,
       formData,
       {
         headers: {

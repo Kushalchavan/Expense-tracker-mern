@@ -42,7 +42,7 @@ const Income = () => {
   };
 
   // Handle add income
-  const handleAddIncome = async (income) => {
+  const handleAddIncome = async(income) => {
     const { source, amount, date, icon } = income;
 
     // Validation Checks
