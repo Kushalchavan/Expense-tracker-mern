@@ -13,6 +13,7 @@ import FinanceOverview from "../../components/dashboard/FinanceOverview";
 import ExpenseTransactions from "../../components/dashboard/ExpenseTransactions";
 import Last30DaysExpenses from "../../components/dashboard/Last30DaysExpenses";
 import RecentIncomeWithChart from "../../components/dashboard/RecentIncomeWithChart";
+import RecentIncome from "../../components/dashboard/RecentIncome";
 
 const Home = () => {
   const [dashboardData, setDashboardData] = useState(null);
@@ -46,7 +47,7 @@ const Home = () => {
   }, []);
 
   return (
-    <DashboardLayout activity="Dashboard">
+    <DashboardLayout activeMenu="Dashboard">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <InfoCard
@@ -97,6 +98,11 @@ const Home = () => {
               dashboardData?.last60DaysIncome?.transactions?.slice(0, 4) || []
             }
             totalIncome={dashboardData?.totalIncome || 0}
+          />
+
+          <RecentIncome
+            transactions={dashboardData?.last60DaysIncome?.transactions || []}
+            onSeeMore={() => navigate("/income")}
           />
         </div>
       </div>
